@@ -82,7 +82,6 @@ class GatoVolador extends Gato{
 $silvestre = new Gato("Silvestre","rosa");
 $benito = new GatoVolador("Benito","azul");
 
-
 print $silvestre->nombre." Maulla asi: ". $silvestre->maullar()."<br>";
 print $benito->nombre." Maulla asi: ". $benito->maullar()."<br>";
 
