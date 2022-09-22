@@ -30,6 +30,14 @@ class Gato{
     }
 
     // Setters y Getters (modifica - actualiza)
+    function __set($name, $valor){
+        $this->$name = $valor;
+    }
+
+    function __get($name){
+        return $this->$name;
+    }
+    
     function setCorbata($c="SI"){
         if($c!="SI"){
             $corbata= "NO";
@@ -67,7 +75,8 @@ print $benito->saludo()."<br>";
 
 print "El nombre del GatoVolador es ".$benito->nombreGatoVolador()."<br>";
 
-$silvestre->setCorbata("NO");
+// $silvestre->setCorbata("NO");
+$silvestre->corbata ="NO";
 print $silvestre->tieneCorbata();
 print $benito->tieneCorbata();
 

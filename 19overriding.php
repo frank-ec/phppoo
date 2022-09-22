@@ -16,6 +16,7 @@ Todas las funciones por omision son publicas
 
 class Gato{
     // Propiedades/variables de las instancias/objetos declaradas en la clase
+    public static $claveSecreta ="12345";
     protected $nombre;
     private $colorPelo;
     private $corbata = "SI";
@@ -26,10 +27,23 @@ class Gato{
     }
 
     function __destruct(){
-        print $this->nombre." Dice adios mundo cruel <br>";
+       // print $this->nombre." Dice adios mundo cruel <br>";
     }
 
     // Setters y Getters (modifica - actualiza)
+    function __set($name, $valor){
+        $this->$name = $valor;
+    }
+
+    function __get($name){
+        return $this->$name;
+    }
+
+    public static function mensajeSecreto(){
+        return "Haz el bien, sin mirar a quien";
+    }
+
+
     function setCorbata($c="SI"){
         if($c!="SI"){
             $corbata= "NO";
@@ -58,20 +72,19 @@ class GatoVolador extends Gato{
     function nombreGatoVolador(){
         return $this->nombre;
     }
+
+    function maullar(){
+        return "grrr,  grrr y  grrr";
+    }
+
 }
+
 $silvestre = new Gato("Silvestre","rosa");
 $benito = new GatoVolador("Benito","azul");
 
-print $silvestre->saludo()."<br>";
-print $benito->saludo()."<br>";
 
-print "El nombre del GatoVolador es ".$benito->nombreGatoVolador()."<br>";
-
-$silvestre->setCorbata("NO");
-print $silvestre->tieneCorbata();
-print $benito->tieneCorbata();
-
-
+print $silvestre->nombre." Maulla asi: ". $silvestre->maullar()."<br>";
+print $benito->nombre." Maulla asi: ". $benito->maullar()."<br>";
 
 
 ?>
