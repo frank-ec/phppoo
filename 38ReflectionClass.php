@@ -43,5 +43,19 @@ class Reptil extends Vertebrado{
 class Tortuga extends Reptil{}
 class Pulpo extends Molusco{}
 
+print "<pre>";
+$reflection = new ReflectionClass("ZipArchive");
+Reflection::export($reflection);
+print $reflection->getName()."<br>";
+print "Es abstracta :";
+var_dump($reflection->isAbstract());
+print "Es instanciable :";
+var_dump($reflection->isInstantiable());
+print "Es interna:";
+var_dump($reflection->isInternal());
+print "</pre>";
+
+
+
 ?>
 

@@ -43,5 +43,21 @@ class Reptil extends Vertebrado{
 class Tortuga extends Reptil{}
 class Pulpo extends Molusco{}
 
+print "<pre>";
+$tortuga = new Tortuga();
+var_dump(get_class_methods($tortuga));
+print "<br>";
+var_dump(get_class_methods(new Pulpo));
+print "<br>";
+var_dump(get_class_methods("Animal"));
+print "<br>";
+    if(method_exists($tortuga,"volar")){
+        print "Si existe el metodo nacer en las tortugas";
+    }else{
+        print "No existe el metodo volar en las tortugas";
+    }
+print "</pre>";
+
+
 ?>
 

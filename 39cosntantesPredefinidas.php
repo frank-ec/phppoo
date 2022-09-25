@@ -5,6 +5,14 @@ interface Animal{
     function reproducir();
     function morir();
 }
+
+class Errores{
+    public static function error($texto){
+        $prefix = date('d-m-Y h:i:s :::');
+        file_put_contents('log.txt', $prefix.$texto."\n", FILE_APPEND);
+    }
+}
+
 // Clases abstractas
 abstract class Vertebrado implements Animal{
     private $huesos;
@@ -27,7 +35,21 @@ abstract class Invertebrado implements Animal{
 
 trait Oviparo{
     private $huevos;
-    public function getHuevos(){ return $this->huevos;}
+    public function getHuevos(){
+        if(!isset($this->huevos)){
+            Errores::error(
+            "Error, debes indicar la variable 'huevos'".
+            ", error en el archivo: ".__FILE__.
+            ", error la linea: ".__LINE__.
+            ", error la clase: ".__CLASS__.
+            ", error el metodo: ".__METHOD__.
+            ", en el trazo: ".__TRAIT__.
+            ", error en el espacio de nombres: ".__NAMESPACE__
+        );
+            throw new Exception("No existe la variable 'huevos'");
+        }
+         return $this->nuevos; //
+    }
 }
 
 class Molusco extends Invertebrado{
@@ -42,6 +64,12 @@ class Reptil extends Vertebrado{
 
 class Tortuga extends Reptil{}
 class Pulpo extends Molusco{}
+
+$tortuga = new Tortuga();
+$tortuga->getHuevos();
+
+
+
 
 ?>
 

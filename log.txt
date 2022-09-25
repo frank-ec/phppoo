@@ -1,0 +1,1 @@
+25-09-2022 03:53:51 :::Error, debes indicar la variable 'huevos', error en el archivo: C:\xampp\htdocs\phppoo\39cosntantesPredefinidas.php, error la linea: 43, error la clase: Reptil, error el metodo: Oviparo::getHuevos, en el trazo: Oviparo, error en el espacio de nombres: 
