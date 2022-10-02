@@ -30,6 +30,16 @@ class MySqldb{
         return $data;
     }
 
+        public function querySlect($q){
+        $data = array();
+        if($q!=""){
+            if($r= mysqli_query($this->conn, $q)){
+                $data = mysqli_fetch_array($r);
+            }
+        }
+        return $data;
+    }
+
     public function close(){
         mysqli_close($this->conn);
         // print "Cierre exitoso de la base de datos ";
